@@ -11,4 +11,4 @@ with open(os.path.join("data", "draw.csv"), "w") as f:
     while len(teams) > 0:
         team = teams.pop(random.randint(0, len(teams)-1))
         person = people.pop(random.randint(0, len(people)-1))
-        f.write(person + "," + team + "\n")
+        f.write(team + "," + person + "\n")

@@ -40,7 +40,7 @@ while True:
     if GAMESTATE == 0:
 
         # Get the latest name
-        person_name, team_name = team_assignment.pop(random.randint(0, len(team_assignment)-1))
+        team_name, person_name = team_assignment.pop(random.randint(0, len(team_assignment)-1))
 
         # Clear background
         DISPLAYSURF.fill((0,0,0))
