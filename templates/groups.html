@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    {% include "table_nav.html" %}
+    <h2>Group Stage</h2>
+
+    {% for game in games %}
+        <div class="game-box">
+            <tr>
+                <td>{{ game.date }}</td>
+                <td>{{ game.home_team }} - {{ game.home_person }}</td>
+                {% if game.home_score != 'None' %}
+                    <td>{{ game.home_score }} - {{ game.away_score }}</td>
+                {% else %}
+                    <td>{{ game.time }}</td>
+                {% endif %}
+                <td>{{ game.away_team }} - {{ game.away_person }}</td>
+            </tr>
+        </div>
+    {% endfor %}
+
+{% endblock %}
