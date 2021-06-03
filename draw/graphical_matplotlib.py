@@ -42,8 +42,8 @@ for i, (team, person), in enumerate(data):
     data[i].append(img)
 
 # Create subplots
-fig, axs = plt.subplots(6,4)
-fig.set_figwidth(8)
+fig, axs = plt.subplots(4,6)
+fig.set_figwidth(14)
 fig.set_figheight(8)
 fig.tight_layout(pad=3.0)
 for axx in axs:
@@ -51,16 +51,23 @@ for axx in axs:
         ax.axis('off')
 
 def index():
-    return iter(range(0,24))
+    return iter(range(0,48))
 
 def updatefig(i):
-    ax = axs.flatten()[i]
+
+    id = int(i/2)
+    ax = axs.flatten()[id]
 
     # Get person, team and flag
-    team, person, flag = data[i]
+    team, person, flag = data[id]
 
-    ax.imshow(flag, origin="upper", extent=[0, 2, 0, 1])
-    ax.set_title(person + " - " + team)
+    if i % 2 == 0:
+        ax.axis('on')
+        ax.get_xaxis().set_visible(False)
+        ax.get_yaxis().set_visible(False)
+        ax.imshow(flag, origin="upper", extent=[0, 2, 0, 1])
+    else:
+        ax.set_title(person + " - " + team)
 
     plt.draw()
 
@@ -68,6 +75,5 @@ anim = animation.FuncAnimation(fig, updatefig, index)
 
 # Set up formatting for the movie files
 Writer = animation.writers['ffmpeg']
-writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
+writer = Writer(fps=0.6, metadata=dict(artist='Me'), bitrate=1800)
 anim.save(os.path.join("data", "draw.mp4"), writer=writer)
-plt.show()
