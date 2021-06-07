@@ -17,6 +17,8 @@ with open(os.path.join('data', 'games.csv'), 'r', newline='') as f:
     games_list = list(reader)
     games = []
     for game in games_list:
+        if game[0] == 'Home':
+            continue
         if game[6] and game[7]:
             games.append(Game(game[0], game[1], game[2], game[3], game[4], game[5], game[6], game[7]))
         else:

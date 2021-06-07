@@ -1,0 +1,54 @@
+body {
+    margin: 15px;
+    background-color: white;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+table, td {
+    border: 1px solid black;
+    table-layout: fixed;
+}
+
+tr {
+    display: block;
+}
+
+.nav-bar {
+    background-color: black;
+}
+
+.nav-item {
+    height: 5vh;
+    font-size: 2vh;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.game-box {
+    text-align: left;
+    margin: 2px;
+    font-size: 2vh;
+}
+
+.game-date {
+    text-align: left;
+    margin-right: 5vw;
+    display: inline-block;
+}
+
+.game-team {
+    text-align: left;
+    margin-inline: 2vw;
+    display: inline-block;
+}
+
+.game-score {
+    text-align: left;
+    margin-inline: 2vw;
+    display: inline-block;
+}

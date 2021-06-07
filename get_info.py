@@ -72,8 +72,6 @@ def main():
         team_assignation = dict(reader)
 
     for game in games:
-        print(game)
-        print(team_assignation)
         game.assign_people(team_assignation)
 
     # Write a csv with home, away, people etc.

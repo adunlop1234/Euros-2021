@@ -6,16 +6,18 @@
 
     {% for game in games %}
         <div class="game-box">
-            <tr>
-                <td>{{ game.date }}</td>
-                <td>{{ game.home_team }} - {{ game.home_person }}</td>
-                {% if game.home_score != 'None' %}
-                    <td>{{ game.home_score }} - {{ game.away_score }}</td>
-                {% else %}
-                    <td>{{ game.time }}</td>
-                {% endif %}
-                <td>{{ game.away_team }} - {{ game.away_person }}</td>
-            </tr>
+            <table>
+                <tr>
+                    <td><div class="game-date">{{ game.date }}</div></td>
+                    <td><div class="game-team">{{ game.home_team }} - {{ game.home_person }}</div></td>
+                    {% if game.home_score != 'None' %}
+                        <td><div class="game-score">{{ game.home_score }} - {{ game.away_score }}</div></td>
+                    {% else %}
+                        <td><div class="game-score">{{ game.time }}</div></td>
+                    {% endif %}
+                    <td><div class="game-team">{{ game.away_team }} - {{ game.away_person }}</div></td>
+                </tr>
+            </table>
         </div>
     {% endfor %}
 

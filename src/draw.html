@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h2>Draw</h2>
+
+    <h3>Assigned Teams to People</h3>
+    <ul>
+    {% for team, person in team_assignation %}
+        <li>{{ person }} - {{ team }}</li>
+    {% endfor %}
+    </ul>
+
+    <h3>Video of Team Draw</h3>
+
+    <video width="320" height="240" controls>
+        <source src="src/draw.mp4" type="video/mp4">
+    </video>
+    
+{% endblock %}
