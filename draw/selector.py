@@ -1,6 +1,9 @@
 import os
 import random
 
+# 
+random.seed(2021)
+
 with open(os.path.join("data", "people.csv"), "r") as f:
     people = list(f.read().splitlines())
 

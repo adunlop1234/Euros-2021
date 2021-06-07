@@ -51,23 +51,25 @@ for axx in axs:
         ax.axis('off')
 
 def index():
-    return iter(range(0,48))
+    return iter(range(0,55))
 
 def updatefig(i):
 
-    id = int(i/2)
-    ax = axs.flatten()[id]
+    if i <= 47:
 
-    # Get person, team and flag
-    team, person, flag = data[id]
+        id = int(i/2)
+        ax = axs.flatten()[id]
 
-    if i % 2 == 0:
-        ax.axis('on')
-        ax.get_xaxis().set_visible(False)
-        ax.get_yaxis().set_visible(False)
-        ax.imshow(flag, origin="upper", extent=[0, 2, 0, 1])
-    else:
-        ax.set_title(person + " - " + team)
+        # Get person, team and flag
+        team, person, flag = data[id]
+
+        if i % 2 == 0:
+            ax.axis('on')
+            ax.get_xaxis().set_visible(False)
+            ax.get_yaxis().set_visible(False)
+            ax.imshow(flag, origin="upper", extent=[0, 2, 0, 1])
+        else:
+            ax.set_title(person + " - " + team)
 
     plt.draw()
 
@@ -75,5 +77,5 @@ anim = animation.FuncAnimation(fig, updatefig, index)
 
 # Set up formatting for the movie files
 Writer = animation.writers['ffmpeg']
-writer = Writer(fps=0.6, metadata=dict(artist='Me'), bitrate=1800)
+writer = Writer(fps=0.3, metadata=dict(artist='Me'), bitrate=1800)
 anim.save(os.path.join("data", "draw.mp4"), writer=writer)
